@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="senac.senacfx.controller.MainViewController">
+    <content>
+        <VBox prefHeight="405.0" prefWidth="566.0">
+            <children>
+            <AnchorPane>
+               <children>
+                      <MenuBar prefHeight="32.0" prefWidth="575.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <menus>
+                              <Menu mnemonicParsing="false" text="Registrar">
+                                  <items>
+                                      <MenuItem fx:id="menuItemSeller" mnemonicParsing="false" onAction="#onMenuItemSellerAction" text="Entregador" />
+                                      <MenuItem fx:id="menuItemDepartment" mnemonicParsing="false" onAction="#onMenuItemDepartmentAction" text="Veículo" />
+                                  </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="Informações">
+                                  <items>
+                                      <MenuItem fx:id="menuItemAbout" mnemonicParsing="false" onAction="#onMenuItemAboutAction" text="Sobre" />
+                                  </items>
+                              </Menu>
+                          </menus>
+                      </MenuBar>
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                  <TextField alignment="CENTER" editable="false" prefHeight="44.0" prefWidth="575.0" text="CADASTRO DE ENTREGAS DIÁRIAS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TextField>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="369.0" prefWidth="608.0">
+               <children>
+                  <ImageView fitHeight="337.0" fitWidth="582.0" layoutX="-7.0" layoutY="-7.0" nodeOrientation="INHERIT" smooth="false">
+                     <image>
+                        <Image url="@../logo.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets left="160.0" top="30.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            </children>
+        </VBox>
+    </content>
+</ScrollPane>
