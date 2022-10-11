@@ -12,11 +12,11 @@ import senac.senacfx.gui.listeners.DataChangeListener;
 import senac.senacfx.gui.util.Alerts;
 import senac.senacfx.gui.util.Constraints;
 import senac.senacfx.gui.util.Utils;
-import senac.senacfx.model.entities.Department;
-import senac.senacfx.model.entities.Seller;
+import senac.senacfx.model.entities.Veiculos;
+import senac.senacfx.model.entities.Entregador;
 import senac.senacfx.model.exceptions.ValidationException;
-import senac.senacfx.model.services.DepartmentService;
-import senac.senacfx.model.services.SellerService;
+import senac.senacfx.model.services.VeiculoService;
+import senac.senacfx.model.services.EntregadorService;
 
 import java.net.URL;
 import java.time.Instant;
@@ -24,13 +24,13 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
 
-public class SellerFormController implements Initializable {
+public class EntregadorFormController implements Initializable {
 
-    private Seller entity;
+    private Entregador entity;
 
-    private SellerService service;
+    private EntregadorService service;
 
-    private DepartmentService departmentService;
+    private VeiculoService veiculoService;
 
     private List<DataChangeListener> dataChangeListeners = new ArrayList<>();
 
@@ -50,7 +50,7 @@ public class SellerFormController implements Initializable {
     private TextField txtBaseSalary;
 
     @FXML
-    private ComboBox<Department> comboBoxDepartment;
+    private ComboBox<Veiculos> comboBoxDepartment;
     @FXML
     private Label labelErrorName;
 
@@ -69,16 +69,16 @@ public class SellerFormController implements Initializable {
     @FXML
     private Button btCancel;
 
-    private ObservableList<Department> obsList;
+    private ObservableList<Veiculos> obsList;
 
     //Contolador agora tem uma instancia do departamento
-    public void setSeller(Seller entity){
+    public void setEntregador(Entregador entity){
         this.entity = entity;
     }
 
-    public void setServices(SellerService service, DepartmentService departmentService){
+    public void setServices(EntregadorService service, VeiculoService veiculoService){
         this.service = service;
-        this.departmentService = departmentService;
+        this.veiculoService = veiculoService;
     }
 
     public void subscribeDataChangeListener(DataChangeListener listener) {
@@ -113,17 +113,17 @@ public class SellerFormController implements Initializable {
         }
     }
 
-    private Seller getFormData() {
-        Seller obj = new Seller();
+    private Entregador getFormData() {
+        Entregador obj = new Entregador();
 
         ValidationException exception = new ValidationException("Erro na validacao");
 
-        obj.setId(Utils.tryParseToInt(txtId.getText()));
+        obj.setId_entregador(Utils.tryParseToInt(txtId.getText()));
 
         if (txtName.getText() == null || txtName.getText().trim().equals("")){
-            exception.addError("name", "campo nao pode ser vazio");
+            exception.addError("nome", "campo nao pode ser vazio");
         }
-        obj.setName(txtName.getText());
+        obj.setNome(txtName.getText());
 
         if (txtEmail.getText() == null || txtEmail.getText().trim().equals("")){
             exception.addError("email", "campo nao pode ser vazio");
@@ -131,18 +131,18 @@ public class SellerFormController implements Initializable {
         obj.setEmail(txtEmail.getText());
 
         if (dpBirthDate.getValue() == null){
-            exception.addError("birthDate", "data nao selecionada");
+            exception.addError("data de nascimento", "data nao selecionada");
         } else {
             Instant instant = Instant.from(dpBirthDate.getValue().atStartOfDay(ZoneId.systemDefault()));
-            obj.setBirthDate(Date.from(instant));
+            obj.setData_de_nascimento(Date.from(instant));
         }
 
         if (txtBaseSalary.getText() == null || txtBaseSalary.getText().trim().equals("")){
-            exception.addError("baseSalary", "campo nao pode ser vazio");
+            exception.addError("salario", "campo nao pode ser vazio");
         }
-        obj.setBaseSalary(Utils.tryParseToDouble(txtBaseSalary.getText()));
+        obj.setSalario(Utils.tryParseToDouble(txtBaseSalary.getText()));
 
-        obj.setDepartment(comboBoxDepartment.getValue());
+        obj.setVeiculos(comboBoxDepartment.getValue());
 
         if (exception.getErrors().size() > 0){
             throw exception;
@@ -179,33 +179,33 @@ public class SellerFormController implements Initializable {
             throw new IllegalStateException("Entidade nula");
         }
 
-        txtId.setText(String.valueOf(entity.getId()));
-        txtName.setText(entity.getName());
+        txtId.setText(String.valueOf(entity.getId_entregador()));
+        txtName.setText(entity.getNome());
         txtEmail.setText(entity.getEmail());
 
         Locale.setDefault(Locale.US);
 
-        if (entity.getBirthDate() != null) {
-            dpBirthDate.setValue(LocalDate.ofInstant(entity.getBirthDate().toInstant(), ZoneId.systemDefault()));
+        if (entity.getData_de_nascimento() != null) {
+            dpBirthDate.setValue(LocalDate.ofInstant(entity.getData_de_nascimento().toInstant(), ZoneId.systemDefault()));
         }
 
-        txtBaseSalary.setText(String.format("%.2f", entity.getBaseSalary()));
+        txtBaseSalary.setText(String.format("%.2f", entity.getSalario()));
 
-        if (entity.getDepartment() == null) {
+        if (entity.getVeiculos() == null) {
             comboBoxDepartment.getSelectionModel().selectFirst();
         } else {
-            comboBoxDepartment.setValue(entity.getDepartment());
+            comboBoxDepartment.setValue(entity.getVeiculos());
         }
 
     }
 
     public void loadAssociatedObjects(){
 
-        if (departmentService == null){
+        if (veiculoService == null){
             throw new IllegalStateException("DepartmentService was null");
         }
 
-        List<Department> list = departmentService.findAll();
+        List<Veiculos> list = veiculoService.findAll();
         obsList = FXCollections.observableArrayList(list);
         comboBoxDepartment.setItems(obsList);
     }
@@ -222,11 +222,11 @@ public class SellerFormController implements Initializable {
     }
 
     private void initializeComboBoxDepartment() {
-        Callback<ListView<Department>, ListCell<Department>> factory = lv -> new ListCell<Department>() {
+        Callback<ListView<Veiculos>, ListCell<Veiculos>> factory = lv -> new ListCell<Veiculos>() {
             @Override
-            protected void updateItem(Department item, boolean empty) {
+            protected void updateItem(Veiculos item, boolean empty) {
                 super.updateItem(item, empty);
-                setText(empty ? "" : item.getName());
+                setText(empty ? "" : item.getPlaca());
             }
         };
         comboBoxDepartment.setCellFactory(factory);

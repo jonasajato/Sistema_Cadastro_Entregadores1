@@ -12,19 +12,18 @@ import senac.senacfx.gui.listeners.DataChangeListener;
 import senac.senacfx.gui.util.Alerts;
 import senac.senacfx.gui.util.Constraints;
 import senac.senacfx.gui.util.Utils;
-import senac.senacfx.model.entities.Department;
+import senac.senacfx.model.entities.Veiculos;
 import senac.senacfx.model.exceptions.ValidationException;
-import senac.senacfx.model.services.DepartmentService;
+import senac.senacfx.model.services.VeiculoService;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.*;
 
-public class DepartmentFormController implements Initializable {
+public class VeiculoFormController implements Initializable {
 
-    private Department entity;
+    private Veiculos entity;
 
-    private DepartmentService service;
+    private VeiculoService service;
 
     private List<DataChangeListener> dataChangeListeners = new ArrayList<>();
 
@@ -44,11 +43,11 @@ public class DepartmentFormController implements Initializable {
     private Button btCancel;
 
     //Contolador agora tem uma instancia do departamento
-    public void setDepartment(Department entity){
+    public void setDepartment(Veiculos entity){
         this.entity = entity;
     }
 
-    public void setDepartmentService(DepartmentService service){
+    public void setDepartmentService(VeiculoService service){
         this.service = service;
     }
 
@@ -84,17 +83,17 @@ public class DepartmentFormController implements Initializable {
         }
     }
 
-    private Department getFormData() {
-        Department obj = new Department();
+    private Veiculos getFormData() {
+        Veiculos obj = new Veiculos();
 
         ValidationException exception = new ValidationException("Erro na validacao");
 
-        obj.setId(Utils.tryParseToInt(txtId.getText()));
+        obj.setId_veiculo(Utils.tryParseToInt(txtId.getText()));
 
         if (txtName.getText() == null || txtName.getText().trim().equals("")){
             exception.addError("name", "campo nao pode ser vazio");
         }
-        obj.setName(txtName.getText());
+        obj.setPlaca(txtName.getText());
 
         if (exception.getErrors().size() > 0){
             throw exception;
@@ -125,8 +124,8 @@ public class DepartmentFormController implements Initializable {
             throw new IllegalStateException("Entidade nula");
         }
 
-        txtId.setText(String.valueOf(entity.getId()));
-        txtName.setText(entity.getName());
+        txtId.setText(String.valueOf(entity.getId_veiculo()));
+        txtName.setText(entity.getPlaca());
     }
 
     private void setErrorMessages(Map<String, String> errors){

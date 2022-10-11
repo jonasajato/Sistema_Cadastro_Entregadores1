@@ -12,8 +12,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import senac.senacfx.application.Main;
 import senac.senacfx.gui.util.Alerts;
-import senac.senacfx.model.services.DepartmentService;
-import senac.senacfx.model.services.SellerService;
+import senac.senacfx.model.services.VeiculoService;
+import senac.senacfx.model.services.EntregadorService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,24 +23,24 @@ import java.util.function.Consumer;
 public class MainViewController implements Initializable {
 
     @FXML
-    private MenuItem menuItemSeller;
+    private MenuItem menuItemEntregador;
     @FXML
-    private MenuItem menuItemDepartment;
+    private MenuItem menuItemVeiculo;
     @FXML
     private MenuItem menuItemAbout;
 
     @FXML
-    public void onMenuItemSellerAction(){
-        loadView("/gui/SellerList.fxml", (SellerListController controller) -> {
-            controller.setSellerService(new SellerService());
+    public void onMenuItemEntregadorAction(){
+        loadView("/gui/EntregadorList.fxml", (EntregadorListController controller) -> {
+            controller.setEntregadorService(new EntregadorService());
             controller.updateTableView();
         });
     }
 
     @FXML
-    public void onMenuItemDepartmentAction(){
-        loadView("/gui/DepartmentList.fxml", (DepartmentListController controller) -> {
-            controller.setDepartmentService(new DepartmentService());
+    public void onMenuItemVeiculoAction(){
+        loadView("/gui/VeiculoList.fxml", (VeiculoListController controller) -> {
+            controller.setVeiculoService(new VeiculoService());
             controller.updateTableView();
         });
     }

@@ -2,8 +2,8 @@ package senac.senacfx.model.dao.impl;
 
 import senac.senacfx.db.DB;
 import senac.senacfx.db.DbException;
-import senac.senacfx.model.dao.DepartmentDao;
-import senac.senacfx.model.entities.Department;
+import senac.senacfx.model.dao.VeiculosDao;
+import senac.senacfx.model.entities.Veiculos;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,23 +11,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DepartmentDaoJDBC implements DepartmentDao {
+public class VeiculosDaoJDBC implements VeiculosDao {
     private Connection conn;
 
-    public DepartmentDaoJDBC(Connection conn) {
+    public VeiculosDaoJDBC(Connection conn) {
         this.conn = conn;
     }
 
     @Override
-    public void insert(Department obj) {
+    public void insert(Veiculos obj) {
         PreparedStatement st = null;
         try {
-            st = conn.prepareStatement("insert into department " +
-                    "(Name) " +
+            st = conn.prepareStatement("insert into veiculo " +
+                    "(placa) " +
                     "values (?) ",
                     Statement.RETURN_GENERATED_KEYS);
 
-            st.setString(1, obj.getName());
+            st.setString(1, obj.getPlaca());
 
             int rowsAffected = st.executeUpdate();
 
@@ -35,7 +35,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
                 ResultSet rs = st.getGeneratedKeys();
                 if (rs.next()){
                     int id = rs.getInt(1);
-                    obj.setId(id);
+                    obj.setId_veiculo(id);
                 }
                 DB.closeResultSet(rs);
             } else {
@@ -50,16 +50,16 @@ public class DepartmentDaoJDBC implements DepartmentDao {
     }
 
     @Override
-    public void update(Department obj) {
+    public void update(Veiculos obj) {
 
         PreparedStatement st = null;
         try {
-            st = conn.prepareStatement("update department " +
-                            "set Name = ? " +
-                            "where Id = ?");
+            st = conn.prepareStatement("update veiculo " +
+                            "set Placa = ? " +
+                            "where Id_veiculo = ?");
 
-            st.setString(1, obj.getName());
-            st.setInt(2, obj.getId());
+            st.setString(1, obj.getPlaca());
+            st.setInt(2, obj.getId_veiculo());
 
             int rowsAffected = st.executeUpdate();
 
@@ -75,17 +75,17 @@ public class DepartmentDaoJDBC implements DepartmentDao {
     }
 
     @Override
-    public void deleteById(Integer id) {
+    public void deleteById(Integer id_veiculo) {
         PreparedStatement st = null;
         try{
-            st = conn.prepareStatement("delete from department where Id = ?");
+            st = conn.prepareStatement("delete from Veiculos where id_veiculos = ?");
 
-            st.setInt(1, id);
+            st.setInt(1, id_veiculo);
 
             int rowsAffected = st.executeUpdate();
 
             if (rowsAffected == 0){
-                throw new DbException("Departamento inexistente!");
+                throw new DbException("Veiculo inexistente!");
             }
 
         } catch (SQLException e){
@@ -96,19 +96,19 @@ public class DepartmentDaoJDBC implements DepartmentDao {
     }
 
     @Override
-    public Department findById(Integer id) {
+    public Veiculos findById(Integer id_veiculo) {
 
         PreparedStatement st = null;
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select * from department " +
-                    "where Id = ?");
+                    "select * from Veiculos " +
+                    "where id_veiculo = ?");
 
-            st.setInt(1, id);
+            st.setInt(1, id_veiculo);
             rs = st.executeQuery();
             if (rs.next()){
-                Department dep = instantiateDepartment(rs);
+                Veiculos dep = instantiateDepartment(rs);
                 return dep;
 
             }
@@ -122,15 +122,15 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
     }
 
-    private Department instantiateDepartment(ResultSet rs) throws SQLException {
-        Department dep = new Department();
-        dep.setId(rs.getInt("Id"));
-        dep.setName(rs.getString("Name"));
+    private Veiculos instantiateDepartment(ResultSet rs) throws SQLException {
+        Veiculos dep = new Veiculos();
+        dep.setId_veiculo(rs.getInt("Id_veiculo"));
+        dep.setPlaca(rs.getString("placa"));
         return dep;
     }
 
     @Override
-    public List<Department> findAll() {
+    public List<Veiculos> findAll() {
 
         PreparedStatement st = null;
         ResultSet rs = null;
@@ -141,12 +141,12 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
             rs = st.executeQuery();
 
-            List<Department> list = new ArrayList<>();
-            Map<Integer, Department> map = new HashMap<>();
+            List<Veiculos> list = new ArrayList<>();
+            Map<Integer, Veiculos> map = new HashMap<>();
 
             while (rs.next()){
 
-                Department dep = map.get(rs.getInt("Id"));
+                Veiculos dep = map.get(rs.getInt("Id"));
 
                 if (dep == null){
                     dep = instantiateDepartment(rs);

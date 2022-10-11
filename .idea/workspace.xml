@@ -4,14 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81d21802-e540-4ec1-be82-3abd3519c3ff" name="Changes" comment="" />
+    <list default="true" id="81d21802-e540-4ec1-be82-3abd3519c3ff" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/EntregadorDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/VeiculosDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/DepartmentFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/VeiculoFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/DepartmentListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/VeiculoListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/SellerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/EntregadorFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/SellerListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/EntregadorListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/DaoFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/DepartmentDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/SellerDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/DepartmentDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/VeiculosDaoJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/SellerDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/EntregadorDaoJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Veiculos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Seller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Entregador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/services/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/services/VeiculoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/services/SellerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/services/EntregadorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/DepartmentForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/VeiculoForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/DepartmentList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/VeiculoList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/SellerForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/EntregadorForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/SellerList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/EntregadorList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/style.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Sistema_Entrega_Produtos" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -24,6 +56,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
   <component name="ProjectId" id="2FfVVEWdvLkiyRMvHOBEjfOY38C" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -35,16 +70,30 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/jonas/OneDrive/Área de Trabalho/Sistema_Cadastro_Entregadores",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/joao.andrade2/IdeaProjects/Sistema_Cadastro_Entregadores1",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="senac.senacfx.application.Main" />
-      <module name="Sistema_Entrega_Produtos" />
+      <module name="SenacFX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="senac.senacfx.application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="View" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="senac.senacfx.application.View" />
+      <module name="SenacFX" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="senac.senacfx.application.*" />
@@ -58,6 +107,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.View" />
       </list>
     </recent_temporary>
   </component>
@@ -71,5 +121,26 @@
       <updated>1664883149628</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="senac.senacfx.db.DbException" package="senac.senacfx.db" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

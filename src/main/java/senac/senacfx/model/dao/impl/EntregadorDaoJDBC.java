@@ -2,9 +2,9 @@ package senac.senacfx.model.dao.impl;
 
 import senac.senacfx.db.DB;
 import senac.senacfx.db.DbException;
-import senac.senacfx.model.dao.SellerDao;
-import senac.senacfx.model.entities.Department;
-import senac.senacfx.model.entities.Seller;
+import senac.senacfx.model.dao.EntregadorDao;
+import senac.senacfx.model.entities.Veiculos;
+import senac.senacfx.model.entities.Entregador;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,28 +12,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SellerDaoJDBC implements SellerDao {
+public abstract class EntregadorDaoJDBC implements EntregadorDao {
     private Connection conn;
 
-    public SellerDaoJDBC(Connection conn) {
+    public EntregadorDaoJDBC(Connection conn) {
         this.conn = conn;
     }
 
     @Override
-    public void insert(Seller obj) {
+    public void insert(Entregador obj) {
         PreparedStatement st = null;
         try{
             st = conn.prepareStatement(
-                    "insert into seller " +
+                    "insert into Entregador " +
                             "(Name, Email, BirthDate, BaseSalary, DepartmentId) " +
                             "values (?, ?, ?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS);
 
-            st.setString(1, obj.getName());
+            st.setString(1, obj.getNome());
             st.setString(2, obj.getEmail());
-            st.setDate(3, new Date(obj.getBirthDate().getTime()));
-            st.setDouble(4, obj.getBaseSalary());
-            st.setInt(5, obj.getDepartment().getId());
+            st.setDate(3, new Date(obj.getData_de_nascimento().getTime()));
+            st.setDouble(4, obj.getSalario());
+            st.setInt(5, obj.getVeiculos().getId_veiculo());
 
             int rowsAffected = st.executeUpdate();
 
@@ -41,7 +41,7 @@ public class SellerDaoJDBC implements SellerDao {
                 ResultSet rs = st.getGeneratedKeys();
                 if (rs.next()){
                     int id = rs.getInt(1);
-                    obj.setId(id);
+                    obj.setId_entregador(id);
                 }
                 DB.closeResultSet(rs);
             } else {
@@ -56,20 +56,20 @@ public class SellerDaoJDBC implements SellerDao {
     }
 
     @Override
-    public void update(Seller obj) {
+    public void update(Entregador obj) {
         PreparedStatement st = null;
         try{
             st = conn.prepareStatement(
-                    "update seller " +
+                    "update Entregador " +
                             "set Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? " +
                             "where id = ?");
 
-            st.setString(1, obj.getName());
+            st.setString(1, obj.getNome());
             st.setString(2, obj.getEmail());
-            st.setDate(3, new Date(obj.getBirthDate().getTime()));
-            st.setDouble(4, obj.getBaseSalary());
-            st.setInt(5, obj.getDepartment().getId());
-            st.setInt(6, obj.getId());
+            st.setDate(3, new Date(obj.getData_de_nascimento().getTime()));
+            st.setDouble(4, obj.getSalario());
+            st.setInt(5, obj.getVeiculos().getId_veiculo());
+            st.setInt(6, obj.getId_entregador());
 
             st.executeUpdate();
 
@@ -84,7 +84,7 @@ public class SellerDaoJDBC implements SellerDao {
     public void deleteById(Integer id) {
         PreparedStatement st = null;
         try{
-            st = conn.prepareStatement("delete from seller where Id = ?");
+            st = conn.prepareStatement("delete from Entregador where Id = ?");
 
             st.setInt(1, id);
 
@@ -102,21 +102,26 @@ public class SellerDaoJDBC implements SellerDao {
     }
 
     @Override
-    public Seller findById(Integer id) {
+    public Entregador findById_veiculo(Integer id_entregador) {
+        return null;
+    }
+
+    @Override
+    public Entregador findById(Integer id) {
         PreparedStatement st = null;
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select seller.*, department.Name as DepName " +
-                    "from seller inner join department " +
-                    "on seller.DepartmentId = department.Id " +
-                    "where seller.Id = ?");
+                    "select Entregador.*, department.Name as DepName " +
+                    "from Entregador inner join department " +
+                    "on Entregador.DepartmentId = department.Id " +
+                    "where Entregador.Id = ?");
 
             st.setInt(1, id);
             rs = st.executeQuery();
             if (rs.next()){
-                Department dep = instantiateDepartment(rs);
-                Seller obj = instantiateSeller(rs, dep);
+                Veiculos dep = instantiateDepartment(rs);
+                Entregador obj = instantiateEntregador(rs, dep);
                 return obj;
 
             }
@@ -129,49 +134,49 @@ public class SellerDaoJDBC implements SellerDao {
         }
     }
 
-    private Department instantiateDepartment(ResultSet rs) throws SQLException {
-        Department dep = new Department();
-        dep.setId(rs.getInt("DepartmentId"));
-        dep.setName(rs.getString("DepName"));
+    private Veiculos instantiateDepartment(ResultSet rs) throws SQLException {
+        Veiculos dep = new Veiculos();
+        dep.setId_veiculo(rs.getInt("VeiculoId"));
+        dep.setPlaca(rs.getString("VeiculoPlaca"));
         return dep;
     }
 
-    private Seller instantiateSeller(ResultSet rs, Department dep) throws SQLException{
-        Seller obj = new Seller();
-        obj.setId(rs.getInt("Id"));
-        obj.setName(rs.getString("Name"));
+    private Entregador instantiateEntregador(ResultSet rs, Veiculos dep) throws SQLException{
+        Entregador obj = new Entregador();
+        obj.setId_entregador(rs.getInt("Id"));
+        obj.setNome(rs.getString("Name"));
         obj.setEmail(rs.getString("Email"));
-        obj.setBaseSalary(rs.getDouble("BaseSalary"));
-        obj.setBirthDate(new java.util.Date(rs.getTimestamp("BirthDate").getTime()));
-        obj.setDepartment(dep);
+        obj.setSalario(rs.getDouble("BaseSalary"));
+        obj.setData_de_nascimento(new java.util.Date(rs.getTimestamp("BirthDate").getTime()));
+        obj.setVeiculos(dep);
         return obj;
     }
     @Override
-    public List<Seller> findAll() {
+    public List<Entregador> findAll() {
         PreparedStatement st = null;
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select seller.*, department.Name as DepName " +
-                    "from seller inner join department " +
-                    "on seller.DepartmentId = department.Id " +
+                    "select Entregador.*, department.Name as DepName " +
+                    "from Entregador inner join department " +
+                    "on Entregador.DepartmentId = department.Id " +
                     "order by Name");
 
             rs = st.executeQuery();
 
-            List<Seller> list = new ArrayList<>();
-            Map<Integer, Department> map = new HashMap<>();
+            List<Entregador> list = new ArrayList<>();
+            Map<Integer, Veiculos> map = new HashMap<>();
 
             while (rs.next()){
 
-                Department dep = map.get(rs.getInt("DepartmentId"));
+                Veiculos dep = map.get(rs.getInt("DepartmentId"));
 
                 if (dep == null){
                     dep = instantiateDepartment(rs);
                     map.put(rs.getInt("DepartmentId"), dep);
                 }
 
-                Seller obj = instantiateSeller(rs, dep);
+                Entregador obj = instantiateEntregador(rs, dep);
                 list.add(obj);
             }
             return list;
@@ -184,34 +189,34 @@ public class SellerDaoJDBC implements SellerDao {
     }
 
     @Override
-    public List<Seller> findByDepartment(Department department) {
+    public List<Entregador> findByDepartment(Veiculos veiculos) {
         PreparedStatement st = null;
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select seller.*, department.Name as DepName " +
-                    "from seller inner join department " +
-                    "on seller.DepartmentId = department.Id " +
+                    "select Entregador.*, department.Name as DepName " +
+                    "from Entregador inner join department " +
+                    "on Entregador.DepartmentId = department.Id " +
                     "where DepartmentId = ? " +
                     "order by Name");
 
-            st.setInt(1, department.getId());
+            st.setInt(1, veiculos.getId_veiculo());
 
             rs = st.executeQuery();
 
-            List<Seller> list = new ArrayList<>();
-            Map<Integer, Department> map = new HashMap<>();
+            List<Entregador> list = new ArrayList<>();
+            Map<Integer, Veiculos> map = new HashMap<>();
 
             while (rs.next()){
 
-                Department dep = map.get(rs.getInt("DepartmentId"));
+                Veiculos dep = map.get(rs.getInt("DepartmentId"));
 
                 if (dep == null){
                     dep = instantiateDepartment(rs);
                     map.put(rs.getInt("DepartmentId"), dep);
                 }
 
-                Seller obj = instantiateSeller(rs, dep);
+                Entregador obj = instantiateEntregador(rs, dep);
                 list.add(obj);
             }
             return list;
