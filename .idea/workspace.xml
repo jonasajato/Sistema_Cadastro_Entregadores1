@@ -5,34 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81d21802-e540-4ec1-be82-3abd3519c3ff" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/EntregadorDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/VeiculosDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/DepartmentFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/VeiculoFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/DepartmentListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/VeiculoListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/EntregadorFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/EntregadorFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/EntregadorListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/EntregadorListController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/SellerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/EntregadorFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/SellerListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/EntregadorListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/VeiculoFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/VeiculoFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/VeiculoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/VeiculoListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/ViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/DaoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/DepartmentDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/SellerDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/DepartmentDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/VeiculosDaoJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/SellerDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/EntregadorDaoJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Veiculos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Seller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Entregador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/services/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/services/VeiculoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/services/SellerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/services/EntregadorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/DepartmentForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/VeiculoForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/DepartmentList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/VeiculoList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/MainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/SellerForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/EntregadorForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/SellerList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/EntregadorList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/EntregadorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/EntregadorDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/EntregadorDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/EntregadorDaoJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/VeiculosDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/VeiculosDaoJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Entregador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Entregador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Veiculos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Veiculos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/services/EntregadorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/services/EntregadorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/services/VeiculoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/services/VeiculoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/EntregadorForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/EntregadorForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/EntregadorList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/EntregadorList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/VeiculoList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/VeiculoList.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,17 +57,17 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/joao.andrade2/IdeaProjects/Sistema_Cadastro_Entregadores1",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/joao.andrade2/IdeaProjects/Sistema_Cadastro_Entregadores1&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="senac.senacfx.application.Main" />

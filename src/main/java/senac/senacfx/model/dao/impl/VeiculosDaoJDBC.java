@@ -24,10 +24,22 @@ public class VeiculosDaoJDBC implements VeiculosDao {
         try {
             st = conn.prepareStatement("insert into veiculo " +
                     "(placa) " +
+                            "(modelo) " +
+                            "(ano) " +
+                            "(ano) " +
+                            "(fabricante ) " +
+                            "(km) " +
+                            "(valor_fipe) " +
                     "values (?) ",
                     Statement.RETURN_GENERATED_KEYS);
 
             st.setString(1, obj.getPlaca());
+            st.setString(1, obj.getModelo());
+            st.setString(1, obj.getCor());
+            st.setString(1, obj.getFabricante());
+            st.setString(1, obj.getKm());
+            st.setDouble(1, obj.getValor_fipe());
+
 
             int rowsAffected = st.executeUpdate();
 
@@ -35,7 +47,7 @@ public class VeiculosDaoJDBC implements VeiculosDao {
                 ResultSet rs = st.getGeneratedKeys();
                 if (rs.next()){
                     int id = rs.getInt(1);
-                    obj.setId_veiculo(id);
+                    obj.setId_veiculo(obj.getId_veiculo());
                 }
                 DB.closeResultSet(rs);
             } else {
@@ -108,7 +120,7 @@ public class VeiculosDaoJDBC implements VeiculosDao {
             st.setInt(1, id_veiculo);
             rs = st.executeQuery();
             if (rs.next()){
-                Veiculos dep = instantiateDepartment(rs);
+                Veiculos dep = instantiateVeiculos(rs);
                 return dep;
 
             }
@@ -122,7 +134,7 @@ public class VeiculosDaoJDBC implements VeiculosDao {
 
     }
 
-    private Veiculos instantiateDepartment(ResultSet rs) throws SQLException {
+    private Veiculos instantiateVeiculos(ResultSet rs) throws SQLException {
         Veiculos dep = new Veiculos();
         dep.setId_veiculo(rs.getInt("Id_veiculo"));
         dep.setPlaca(rs.getString("placa"));
@@ -136,8 +148,8 @@ public class VeiculosDaoJDBC implements VeiculosDao {
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select * from department "+
-                    "order by Name");
+                    "select * from Veiculos "+
+                    "order by Modelo");
 
             rs = st.executeQuery();
 
@@ -149,7 +161,7 @@ public class VeiculosDaoJDBC implements VeiculosDao {
                 Veiculos dep = map.get(rs.getInt("Id"));
 
                 if (dep == null){
-                    dep = instantiateDepartment(rs);
+                    dep = instantiateVeiculos(rs);
                     map.put(rs.getInt("Id"), dep);
                 }
 

@@ -13,6 +13,16 @@ public class DaoFactory {
     public static EntregadorDao createEntregadorDao(){
         return new EntregadorDaoJDBC(DB.getConnection()) {
             @Override
+            public void deleteByid_entregador(Integer id_entregador) {
+
+            }
+
+            @Override
+            public Entregador findByid_entregador(Integer id_entregador) {
+                return null;
+            }
+
+            @Override
             public List<Entregador> findByVeiculo(Veiculos veiculos) {
                 return null;
             }

@@ -1,19 +1,33 @@
 package senac.senacfx.model.entities;
 
 import java.io.Serializable;
+import java.time.Year;
 
 public class Veiculos implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Integer id_veiculo;
     private String placa;
+    private String modelo;
+    private Year ano;
+    private String cor;
+    private String fabricante;
+    private String km;
+    private double valor_fipe;
 
     public Veiculos() {
     }
 
-    public Veiculos(Integer id_veiculo, String placa) {
+    public Veiculos(Integer id_veiculo, String placa, String modelo, Year ano, String cor, String fabricante, String Km, Double Valor_fipe) {
         this.id_veiculo = id_veiculo;
         this.placa = placa;
+        this.modelo = modelo;
+        this.ano = ano;
+        this.cor= cor;
+        this.fabricante=fabricante;
+        this.km= Km;
+        this.valor_fipe= Valor_fipe;
+
     }
 
     public Integer getId_veiculo() {
@@ -30,6 +44,54 @@ public class Veiculos implements Serializable {
 
     public void setPlaca(String placa) {
         this.placa = placa;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public Year getAno() {
+        return ano;
+    }
+
+    public void setAno(Year ano) {
+        this.ano = ano;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public void setFabricante(String fabricante) {
+        this.fabricante = fabricante;
+    }
+
+    public String getKm() {
+        return km;
+    }
+
+    public void setKm(String km) {
+        this.km = km;
+    }
+
+    public double getValor_fipe() {
+        return valor_fipe;
+    }
+
+    public void setValor_fipe(double valor_fipe) {
+        this.valor_fipe = valor_fipe;
     }
 
     @Override
@@ -63,6 +125,12 @@ public class Veiculos implements Serializable {
         return "Veiculo{" +
                 "id_veiculo=" + id_veiculo +
                 ", placa='" + placa + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", ano='" + ano + '\'' +
+                ", cor='" + cor + '\'' +
+                ", fabricante='" + fabricante + '\'' +
+                ", km='" + km + '\'' +
+                ", valor_fipe='" + valor_fipe + '\'' +
                 '}';
     }
 }

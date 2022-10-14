@@ -23,23 +23,37 @@ import senac.senacfx.model.services.VeiculoService;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.Year;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class VeiculoListController implements Initializable, DataChangeListener {
-    //ao inves de implementar um service = new DepartmentService(), ficaria acoplamento forte
+    //ao inves de implementar um service = new VeiculosService(), ficaria acoplamento forte
     //e seria obrigado a instanciar a classe
     private VeiculoService service;
 
     @FXML
-    private TableView<Veiculos> tableViewDepartment;
+    private TableView<Veiculos> tableViewVeiculos;
 
     @FXML
-    private TableColumn<Veiculos, Integer> tableColumnId;
+    private TableColumn<Veiculos, Integer> tableColumnid_veiculo;
 
     @FXML
-    private TableColumn<Veiculos, String> tableColumnName;
+    private TableColumn<Veiculos, String> tableColumnplaca;
+    @FXML
+    private TableColumn<Veiculos, String> tableColumnmodelo;
+    @FXML
+    private TableColumn<Veiculos, Year> tableColumnano;
+    @FXML
+    private TableColumn<Veiculos, String> tableColumncor;
+    @FXML
+    private TableColumn<Veiculos, String> tableColumnfabricante;
+    @FXML
+    private TableColumn<Veiculos, String> tableColumnkm;
+    @FXML
+    private TableColumn<Veiculos, Double> tableColumnvalor_fipe;
+
 
     @FXML
     private TableColumn<Veiculos, Veiculos> tableColumnEDIT;
@@ -72,11 +86,17 @@ public class VeiculoListController implements Initializable, DataChangeListener 
     }
 
     private void initializeNodes() {
-        tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tableColumnid_veiculo.setCellValueFactory(new PropertyValueFactory<>("id_veiculo"));
+        tableColumnplaca.setCellValueFactory(new PropertyValueFactory<>("placa"));
+        tableColumnmodelo.setCellValueFactory(new PropertyValueFactory<>("modelo"));
+        tableColumnano.setCellValueFactory(new PropertyValueFactory<>("ano"));
+        tableColumncor.setCellValueFactory(new PropertyValueFactory<>("cor"));
+        tableColumnfabricante.setCellValueFactory(new PropertyValueFactory<>("fabricante"));
+        tableColumnkm.setCellValueFactory(new PropertyValueFactory<>("km"));
+        tableColumnvalor_fipe.setCellValueFactory(new PropertyValueFactory<>("valor_fipe"));
 
         Stage stage = (Stage) Main.getMainScene().getWindow();
-        tableViewDepartment.prefHeightProperty().bind(stage.heightProperty());
+        tableViewVeiculos.prefHeightProperty().bind(stage.heightProperty());
 
     }
 
@@ -86,7 +106,7 @@ public class VeiculoListController implements Initializable, DataChangeListener 
         }
         List<Veiculos> list = service.findAll();
         obsList = FXCollections.observableArrayList(list);
-        tableViewDepartment.setItems(obsList);
+        tableViewVeiculos.setItems(obsList);
         initEditButtons();
         initRemoveButtons();
     }
@@ -97,13 +117,13 @@ public class VeiculoListController implements Initializable, DataChangeListener 
             Pane pane = loader.load();
 
             VeiculoFormController controller = loader.getController();
-            controller.setDepartment(obj);
-            controller.setDepartmentService(new VeiculoService());
+            controller.setVeiculos(obj);
+            controller.setVeiculosService(new VeiculoService());
             controller.subscribeDataChangeListener(this);
             controller.updateFormData();
 
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Enter department data");
+            dialogStage.setTitle("Enter Veiculos data");
             dialogStage.setScene(new Scene(pane));
             dialogStage.setResizable(false);
             dialogStage.initOwner(parentStage);

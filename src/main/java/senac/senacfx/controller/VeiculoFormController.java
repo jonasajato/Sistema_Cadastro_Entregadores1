@@ -43,11 +43,11 @@ public class VeiculoFormController implements Initializable {
     private Button btCancel;
 
     //Contolador agora tem uma instancia do departamento
-    public void setDepartment(Veiculos entity){
+    public void setVeiculos(Veiculos entity){
         this.entity = entity;
     }
 
-    public void setDepartmentService(VeiculoService service){
+    public void setVeiculosService(VeiculoService service){
         this.service = service;
     }
 

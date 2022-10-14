@@ -25,7 +25,7 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
         try{
             st = conn.prepareStatement(
                     "insert into Entregador " +
-                            "(Name, Email, BirthDate, BaseSalary, DepartmentId) " +
+                            "(nome, Email, BirthDate, BaseSalary, id_veiculo) " +
                             "values (?, ?, ?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS);
 
@@ -40,8 +40,8 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
             if (rowsAffected > 0){
                 ResultSet rs = st.getGeneratedKeys();
                 if (rs.next()){
-                    int id = rs.getInt(1);
-                    obj.setId_entregador(id);
+                    int id_entregador = rs.getInt(1);
+                    obj.setId_entregador(id_entregador);
                 }
                 DB.closeResultSet(rs);
             } else {
@@ -61,7 +61,7 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
         try{
             st = conn.prepareStatement(
                     "update Entregador " +
-                            "set Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? " +
+                            "set nome = ?, Email = ?, BirthDate = ?, BaseSalary = ?, id_veiculo = ? " +
                             "where id = ?");
 
             st.setString(1, obj.getNome());
@@ -81,12 +81,12 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
     }
 
     @Override
-    public void deleteById(Integer id) {
+    public void deleteById_entregador(Integer id_entregador) {
         PreparedStatement st = null;
         try{
             st = conn.prepareStatement("delete from Entregador where Id = ?");
 
-            st.setInt(1, id);
+            st.setInt(1, id_entregador);
 
             int rowsAffected = st.executeUpdate();
 
@@ -112,15 +112,15 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select Entregador.*, department.Name as DepName " +
-                    "from Entregador inner join department " +
-                    "on Entregador.DepartmentId = department.Id " +
+                    "select Entregador.*, Veiculos.nome as Depnome " +
+                    "from Entregador inner join Veiculos " +
+                    "on Entregador.DepartmentId = id_veiculo " +
                     "where Entregador.Id = ?");
 
             st.setInt(1, id);
             rs = st.executeQuery();
             if (rs.next()){
-                Veiculos dep = instantiateDepartment(rs);
+                Veiculos dep = instantiateVeiculos(rs);
                 Entregador obj = instantiateEntregador(rs, dep);
                 return obj;
 
@@ -134,7 +134,7 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
         }
     }
 
-    private Veiculos instantiateDepartment(ResultSet rs) throws SQLException {
+    private Veiculos instantiateVeiculos(ResultSet rs) throws SQLException {
         Veiculos dep = new Veiculos();
         dep.setId_veiculo(rs.getInt("VeiculoId"));
         dep.setPlaca(rs.getString("VeiculoPlaca"));
@@ -157,9 +157,9 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select Entregador.*, department.Name as DepName " +
-                    "from Entregador inner join department " +
-                    "on Entregador.DepartmentId = department.Id " +
+                    "select Entregador.*, Veiculos.Name as DepName " +
+                    "from Entregador inner join Veiculos " +
+                    "on Entregador.id_veiculo = id_veiculo " +
                     "order by Name");
 
             rs = st.executeQuery();
@@ -169,11 +169,11 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
 
             while (rs.next()){
 
-                Veiculos dep = map.get(rs.getInt("DepartmentId"));
+                Veiculos dep = map.get(rs.getInt("VeiculosId"));
 
                 if (dep == null){
-                    dep = instantiateDepartment(rs);
-                    map.put(rs.getInt("DepartmentId"), dep);
+                    dep = instantiateVeiculos(rs);
+                    map.put(rs.getInt("id_veiculo"), dep);
                 }
 
                 Entregador obj = instantiateEntregador(rs, dep);
@@ -189,15 +189,15 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
     }
 
     @Override
-    public List<Entregador> findByDepartment(Veiculos veiculos) {
+    public List<Entregador> findByVeiculos(Veiculos veiculos) {
         PreparedStatement st = null;
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select Entregador.*, department.Name as DepName " +
-                    "from Entregador inner join department " +
-                    "on Entregador.DepartmentId = department.Id " +
-                    "where DepartmentId = ? " +
+                    "select Entregador.*, Veiculos.Name as DepName " +
+                    "from Entregador inner join Veiculos " +
+                    "on Entregador.id_veiculo = id_veiculo " +
+                    "where id_veiculo = ? " +
                     "order by Name");
 
             st.setInt(1, veiculos.getId_veiculo());
@@ -209,11 +209,11 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
 
             while (rs.next()){
 
-                Veiculos dep = map.get(rs.getInt("DepartmentId"));
+                Veiculos dep = map.get(rs.getInt("id_veiculo"));
 
                 if (dep == null){
-                    dep = instantiateDepartment(rs);
-                    map.put(rs.getInt("DepartmentId"), dep);
+                    dep = instantiateVeiculos(rs);
+                    map.put(rs.getInt("id_veiculo"), dep);
                 }
 
                 Entregador obj = instantiateEntregador(rs, dep);

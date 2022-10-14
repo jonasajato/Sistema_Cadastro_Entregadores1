@@ -31,7 +31,7 @@ public class EntregadorService {
         }
 
         public void remove(Entregador obj){
-            dao.deleteById(obj.getId_entregador());
+            dao.deleteById_entregador(obj.getId_entregador());
         }
     }
 

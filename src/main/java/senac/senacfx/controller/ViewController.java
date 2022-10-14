@@ -81,7 +81,7 @@ public class ViewController implements Initializable {
             @Override
             protected void updateItem(Person item, boolean empty) {
                 super.updateItem(item, empty);
-                setText(empty ? "" : item.getName());
+                setText(empty ? "" : item.getnome());
             }
         };
         combo1.setCellFactory(factory);

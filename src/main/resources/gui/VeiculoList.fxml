@@ -32,16 +32,18 @@
           <Button fx:id="btNew" mnemonicParsing="false" onAction="#onBtNewAction" styleClass="button-new" text="Novo" />
         </items>
       </ToolBar>
-      <TableView fx:id="tableViewDepartment" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="tableViewVeiculos" prefHeight="200.0" prefWidth="200.0">
         <columns>
-          <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="Código" />
-          <TableColumn fx:id="tableColumnName" prefWidth="75.0" text="Placa" />
-            <TableColumn fx:id="tableColumnEDIT" prefWidth="75.0" text="Modelo" />
-            <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" text="Ano" />
-            <TableColumn fx:id="tableColumnREMOVE1" prefWidth="75.0" text="Cor" />
-            <TableColumn fx:id="tableColumnREMOVE2" prefWidth="75.0" text="Fabricante" />
-            <TableColumn fx:id="tableColumnREMOVE3" prefWidth="75.0" text="KM" />
-            <TableColumn fx:id="tableColumnREMOVE4" prefWidth="75.0" text="Valor FIPE" />
+          <TableColumn fx:id="tableColumnid_veiculo" prefWidth="75.0" text="Código" />
+          <TableColumn fx:id="tableColumnplaca" prefWidth="75.0" text="Placa" />
+            <TableColumn fx:id="tableColumnmodelo" prefWidth="75.0" text="Modelo" />
+            <TableColumn fx:id="tableColumnano" prefWidth="75.0" text="Ano" />
+            <TableColumn fx:id="tableColumncor" prefWidth="75.0" text="Cor" />
+            <TableColumn fx:id="tableColumnfabricante" prefWidth="75.0" text="Fabricante" />
+            <TableColumn fx:id="tableColumnkm" prefWidth="75.0" text="KM" />
+            <TableColumn fx:id="tableColumnvalor_fipe" prefWidth="75.0" text="Valor FIPE" />
+            <TableColumn fx:id="tableColumnEDIT" prefWidth="75.0" text="Editar" />
+            <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" text="Remover" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

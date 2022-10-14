@@ -11,17 +11,23 @@ public class Entregador implements Serializable {
     private Date data_de_nascimento;
     private Double salario;
 
+    private String endereco;
+
+    private String telefone;
+
     private Veiculos veiculos;
 
     public Entregador() {
     }
 
-    public Entregador(Integer id_entregador, String nome, String email, Date data_de_nascimento, Double salario, Veiculos veiculos) {
+    public Entregador(Integer id_entregador, String nome, String email, Date data_de_nascimento, Double salario, String endereco, String telefone, Veiculos veiculos) {
         this.id_entregador = id_entregador;
         this.nome = nome;
         this.email = email;
         this.data_de_nascimento = data_de_nascimento;
         this.salario = salario;
+        this.endereco = endereco;
+        this.telefone = telefone;
         this.veiculos = veiculos;
     }
 
@@ -61,9 +67,17 @@ public class Entregador implements Serializable {
         return salario;
     }
 
-    public void setSalario(Double baseSalary) {
-        this.salario = baseSalary;
+    public void setSalario(Double salario) {
+        this.salario = salario;
     }
+
+    public String getendereco() {return endereco;}
+
+    public String setendereco(String text) {return endereco;}
+
+    public String gettelefone() {return telefone;}
+
+    public String settelefone(String text) {return telefone;}
 
     public Veiculos getVeiculos() {
         return veiculos;
@@ -107,7 +121,9 @@ public class Entregador implements Serializable {
                 ", email='" + email + '\'' +
                 ", data de nascimento=" + data_de_nascimento +
                 ", salario=" + salario +
-                ", department=" + veiculos +
+                ", endereco=" + endereco +
+                ", telefone=" + telefone +
+                ", veiculos=" + veiculos +
                 '}';
     }
 }

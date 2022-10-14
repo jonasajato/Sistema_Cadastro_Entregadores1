@@ -38,7 +38,7 @@ public class EntregadorListController implements Initializable, DataChangeListen
     private TableView<Entregador> tableViewEntregador;
 
     @FXML
-    private TableColumn<Entregador, Integer> tableColumnId;
+    private TableColumn<Entregador, Integer> tableColumnId_entregador;
 
     @FXML
     private TableColumn<Entregador, String> tableColumnName;
@@ -51,6 +51,12 @@ public class EntregadorListController implements Initializable, DataChangeListen
 
     @FXML
     private TableColumn<Entregador, Double> tableColumnBaseSalary;
+
+    @FXML
+    private TableColumn<Entregador, String> tableColumnEndereco;
+
+    @FXML
+    private TableColumn<Entregador, String> tableColumnTelefone;
 
     @FXML
     private TableColumn<Entregador, Entregador> tableColumnEDIT;
@@ -83,12 +89,14 @@ public class EntregadorListController implements Initializable, DataChangeListen
     }
 
     private void initializeNodes() {
-        tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tableColumnId_entregador.setCellValueFactory(new PropertyValueFactory<>("id_entregador"));
+        tableColumnName.setCellValueFactory(new PropertyValueFactory<>("nome"));
         tableColumnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        tableColumnBirthDate.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
-        Utils.formatTableColumnDate(tableColumnBirthDate, "dd/MM/yyyy");
-        tableColumnBaseSalary.setCellValueFactory(new PropertyValueFactory<>("baseSalary"));
+        tableColumnBirthDate.setCellValueFactory(new PropertyValueFactory<>("data_de_nascimento"));
+        Utils.formatTableColumnDate(tableColumnBirthDate, "yyyy/MM/dd");
+        tableColumnBaseSalary.setCellValueFactory(new PropertyValueFactory<>("salario"));
+        tableColumnEndereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
+        tableColumnTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
         Utils.formatTableColumnDouble(tableColumnBaseSalary, 2);
 
 

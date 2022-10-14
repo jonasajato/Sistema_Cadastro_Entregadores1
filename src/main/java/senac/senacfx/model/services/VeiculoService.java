@@ -15,10 +15,10 @@ public class VeiculoService {
         return dao.findAll();
 
         //Dados MOCK (fake) so para testar, sem puxar do banco por hora
-//        List<Department> list = new ArrayList<>();
-//        list.add(new Department(1,"Computadores"));
-//        list.add(new Department(2,"Alimentação"));
-//        list.add(new Department(3,"Financeiro"));
+//        List<Veiculos> list = new ArrayList<>();
+//        list.add(new Veiculos(1,"Computadores"));
+//        list.add(new Veiculos(2,"Alimentação"));
+//        list.add(new Veiculos(3,"Financeiro"));
 //        return list;
 
     }

@@ -48,9 +48,13 @@ public class EntregadorFormController implements Initializable {
 
     @FXML
     private TextField txtBaseSalary;
+    @FXML
+    private TextField txtEndereco;
+    @FXML
+    private TextField txtTelefone;
 
     @FXML
-    private ComboBox<Veiculos> comboBoxDepartment;
+    private ComboBox<Veiculos> comboBoxVeiculos;
     @FXML
     private Label labelErrorName;
 
@@ -64,12 +68,18 @@ public class EntregadorFormController implements Initializable {
     private Label labelErrorBaseSalary;
 
     @FXML
+    private Label labelErrorEndereco;
+    @FXML
+    private Label labelErrorTelefone;
+
+    @FXML
     private Button btSave;
 
     @FXML
     private Button btCancel;
 
     private ObservableList<Veiculos> obsList;
+
 
     //Contolador agora tem uma instancia do departamento
     public void setEntregador(Entregador entity){
@@ -142,7 +152,17 @@ public class EntregadorFormController implements Initializable {
         }
         obj.setSalario(Utils.tryParseToDouble(txtBaseSalary.getText()));
 
-        obj.setVeiculos(comboBoxDepartment.getValue());
+        obj.setVeiculos(comboBoxVeiculos.getValue());
+
+        if (txtEndereco.getText() == null || txtEmail.getText().trim().equals("")){
+            exception.addError("endereco", "campo nao pode ser vazio");
+        }
+        obj.setendereco(txtEndereco.getText());
+
+        if (txtTelefone.getText() == null || txtEmail.getText().trim().equals("")){
+            exception.addError("telefone", "campo nao pode ser vazio");
+        }
+        obj.settelefone(txtTelefone.getText());
 
         if (exception.getErrors().size() > 0){
             throw exception;
@@ -164,12 +184,15 @@ public class EntregadorFormController implements Initializable {
 
     private void initializeNodes() {
         Constraints.setTextFieldInteger(txtId);
-        Constraints.setTextFieldMaxLength(txtName, 70);
+        Constraints.setTextFieldMaxLength(txtName, 45);
+        Constraints.setTextFieldMaxLength(txtEmail, 45);
+        Utils.formatDatePicker(dpBirthDate, "yyyy/MM/dd");
         Constraints.setTextFieldDouble(txtBaseSalary);
-        Constraints.setTextFieldMaxLength(txtEmail, 60);
-        Utils.formatDatePicker(dpBirthDate, "dd/MM/yyyy");
+        Constraints.setTextFieldMaxLength(txtEndereco, 150);
+        Constraints.setTextFieldMaxLength(txtTelefone, 20);
 
-        initializeComboBoxDepartment();
+
+        initializeComboBoxVeiculos();
 
     }
 
@@ -192,36 +215,40 @@ public class EntregadorFormController implements Initializable {
         txtBaseSalary.setText(String.format("%.2f", entity.getSalario()));
 
         if (entity.getVeiculos() == null) {
-            comboBoxDepartment.getSelectionModel().selectFirst();
+            comboBoxVeiculos.getSelectionModel().selectFirst();
         } else {
-            comboBoxDepartment.setValue(entity.getVeiculos());
+            comboBoxVeiculos.setValue(entity.getVeiculos());
         }
+
+        txtEndereco.setText(entity.getendereco());
+        txtTelefone.setText(entity.gettelefone());
 
     }
 
     public void loadAssociatedObjects(){
 
         if (veiculoService == null){
-            throw new IllegalStateException("DepartmentService was null");
+            throw new IllegalStateException("VeiculosService was null");
         }
 
         List<Veiculos> list = veiculoService.findAll();
         obsList = FXCollections.observableArrayList(list);
-        comboBoxDepartment.setItems(obsList);
+        comboBoxVeiculos.setItems(obsList);
     }
 
     private void setErrorMessages(Map<String, String> errors){
         Set<String> fields = errors.keySet();
 
-        labelErrorName.setText((fields.contains("name") ? errors.get("name") : ""));
+        labelErrorName.setText((fields.contains("nome") ? errors.get("nome") : ""));
         labelErrorEmail.setText((fields.contains("email") ? errors.get("email") : ""));
-        labelErrorBirthDate.setText((fields.contains("birthDate") ? errors.get("birthDate") : ""));
-        labelErrorBaseSalary.setText((fields.contains("baseSalary") ? errors.get("baseSalary") : ""));
-        labelErrorName.getStyleClass().add("button");
+        labelErrorBirthDate.setText((fields.contains("data_de_nascimento") ? errors.get("data_de_nascimento") : ""));
+        labelErrorBaseSalary.setText((fields.contains("salario") ? errors.get("salario") : ""));
+        labelErrorEndereco.setText((fields.contains("endereco") ? errors.get("endereco") : ""));
+        labelErrorTelefone.setText((fields.contains("telefone") ? errors.get("telefone") : ""));
 
     }
 
-    private void initializeComboBoxDepartment() {
+    private void initializeComboBoxVeiculos() {
         Callback<ListView<Veiculos>, ListCell<Veiculos>> factory = lv -> new ListCell<Veiculos>() {
             @Override
             protected void updateItem(Veiculos item, boolean empty) {
@@ -229,8 +256,8 @@ public class EntregadorFormController implements Initializable {
                 setText(empty ? "" : item.getPlaca());
             }
         };
-        comboBoxDepartment.setCellFactory(factory);
-        comboBoxDepartment.setButtonCell(factory.call(null));
+        comboBoxVeiculos.setCellFactory(factory);
+        comboBoxVeiculos.setButtonCell(factory.call(null));
     }
 
 }
