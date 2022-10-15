@@ -68,10 +68,22 @@ public class VeiculosDaoJDBC implements VeiculosDao {
         try {
             st = conn.prepareStatement("update veiculo " +
                             "set placa = ? " +
+                            "set modelo = ? " +
+                    "set ano = ? " +
+                    "set cor = ? " +
+                    "set fabricante = ? " +
+                    "set km = ? " +
+                    "set valor_fipe = ? " +
                             "where id_veiculo = ?");
 
             st.setString(1, obj.getPlaca());
             st.setInt(2, obj.getId_veiculo());
+            st.setString(3, obj.getModelo());
+            st.setDate(4, Date.valueOf(obj.getAno()));
+            st.setString(5, obj.getCor());
+            st.setString(6, obj.getFabricante());
+            st.setString(7, obj.getKm());
+            st.setDouble(8, obj.getValor_fipe());
 
             int rowsAffected = st.executeUpdate();
 

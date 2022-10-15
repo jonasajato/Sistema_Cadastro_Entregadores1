@@ -54,8 +54,8 @@ public class Veiculos implements Serializable {
         this.modelo = modelo;
     }
 
-    public Year getAno() {
-        return ano;
+    public String getAno() {
+        return String.valueOf(ano);
     }
 
     public void setAno(Year ano) {
