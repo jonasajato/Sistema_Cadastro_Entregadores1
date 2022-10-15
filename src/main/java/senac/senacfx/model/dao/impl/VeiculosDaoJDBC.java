@@ -67,8 +67,8 @@ public class VeiculosDaoJDBC implements VeiculosDao {
         PreparedStatement st = null;
         try {
             st = conn.prepareStatement("update veiculo " +
-                            "set Placa = ? " +
-                            "where Id_veiculo = ?");
+                            "set placa = ? " +
+                            "where id_veiculo = ?");
 
             st.setString(1, obj.getPlaca());
             st.setInt(2, obj.getId_veiculo());
@@ -90,7 +90,7 @@ public class VeiculosDaoJDBC implements VeiculosDao {
     public void deleteById(Integer id_veiculo) {
         PreparedStatement st = null;
         try{
-            st = conn.prepareStatement("delete from Veiculos where id_veiculos = ?");
+            st = conn.prepareStatement("delete from veiculos where id_veiculo = ?");
 
             st.setInt(1, id_veiculo);
 
@@ -114,8 +114,8 @@ public class VeiculosDaoJDBC implements VeiculosDao {
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select * from veiculos " +
-                    "where id_veiculo = ?" + id_veiculo);
+                    "select * from veiculos ");
+//                    "where id_veiculo = ?" + id_veiculo);
 
             st.setInt(1, id_veiculo);
             rs = st.executeQuery();

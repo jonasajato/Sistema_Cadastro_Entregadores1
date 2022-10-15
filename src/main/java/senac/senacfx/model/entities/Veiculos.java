@@ -18,15 +18,15 @@ public class Veiculos implements Serializable {
     public Veiculos() {
     }
 
-    public Veiculos(Integer id_veiculo, String placa, String modelo, Year ano, String cor, String fabricante, String Km, Double Valor_fipe) {
+    public Veiculos(Integer id_veiculo, String placa, String modelo, Year ano, String cor, String fabricante, String km, Double valor_fipe) {
         this.id_veiculo = id_veiculo;
         this.placa = placa;
         this.modelo = modelo;
         this.ano = ano;
         this.cor= cor;
         this.fabricante=fabricante;
-        this.km= Km;
-        this.valor_fipe= Valor_fipe;
+        this.km= km;
+        this.valor_fipe= valor_fipe;
 
     }
 
@@ -122,7 +122,7 @@ public class Veiculos implements Serializable {
 
     @Override
     public String toString() {
-        return "Veiculo{" +
+        return "veiculo{" +
                 "id_veiculo=" + id_veiculo +
                 ", placa='" + placa + '\'' +
                 ", modelo='" + modelo + '\'' +

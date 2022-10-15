@@ -21,7 +21,7 @@ public interface EntregadorDao {
     Entregador findById(Integer id);
 
     List<Entregador> findAll();
-    List<Entregador> findByVeiculo(Veiculos veiculos);
+    List<Entregador> findByEntregador(Entregador entregador);
 
     List<Entregador> findByVeiculos(Veiculos veiculos);
 }

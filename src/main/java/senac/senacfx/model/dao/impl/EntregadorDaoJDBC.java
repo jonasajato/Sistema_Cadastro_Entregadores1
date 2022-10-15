@@ -157,10 +157,12 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select Entregador.*, Veiculos.Name as DepName " +
-                    "from Entregador inner join Veiculos " +
-                    "on Entregador.id_veiculo = id_veiculo " +
-                    "order by Name");
+                    "select * from entregador");
+
+//            select Entregador.*, Veiculos.Name as DepName " +
+//            "from Entregador inner join Veiculos " +
+//                    "on Entregador.id_veiculo = id_veiculo " +
+//                    "order by Name
 
             rs = st.executeQuery();
 
@@ -189,18 +191,20 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
     }
 
     @Override
-    public List<Entregador> findByVeiculos(Veiculos veiculos) {
+    public List<Entregador> findByEntregador(Entregador entregador) {
         PreparedStatement st = null;
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select Entregador.*, Veiculos.Name as DepName " +
-                    "from Entregador inner join Veiculos " +
-                    "on Entregador.id_veiculo = id_veiculo " +
-                    "where id_veiculo = ? " +
-                    "order by Name");
+                    "select * from entregador");
 
-            st.setInt(1, veiculos.getId_veiculo());
+//            "select Entregador.*, Veiculos.Name as DepName " +
+//                    "from Entregador inner join Veiculos " +
+//                    "on Entregador.id_veiculo = id_veiculo " +
+//                    "where id_veiculo = ? " +
+//                    "order by Name"
+
+            st.setInt(1, entregador.getId_entregador());
 
             rs = st.executeQuery();
 

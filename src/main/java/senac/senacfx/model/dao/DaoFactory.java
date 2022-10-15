@@ -23,7 +23,12 @@ public class DaoFactory {
             }
 
             @Override
-            public List<Entregador> findByVeiculo(Veiculos id_veiculo) {
+            public List<Entregador> findByEntregador(Entregador entregador) {
+                return null;
+            }
+
+            @Override
+            public List<Entregador> findByVeiculos(Veiculos veiculos) {
                 return null;
             }
         };
