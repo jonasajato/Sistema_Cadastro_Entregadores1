@@ -67,6 +67,10 @@ public class EntregadorFormController implements Initializable {
     @FXML
     private Label labelErrorBaseSalary;
 
+    public Label getLabelErrorEndereco() {
+        return labelErrorEndereco;
+    }
+
     @FXML
     private Label labelErrorEndereco;
     @FXML
@@ -260,4 +264,27 @@ public class EntregadorFormController implements Initializable {
         comboBoxVeiculos.setButtonCell(factory.call(null));
     }
 
+    public void setLabelErrorEndereco(Label labelErrorEndereco) {
+        this.labelErrorEndereco = labelErrorEndereco;
+    }
+
+    public Button getBtSave() {
+        return btSave;
+    }
+
+    public void setBtSave(Button btSave) {
+        this.btSave = btSave;
+    }
+
+    public Button getBtCancel() {
+        return btCancel;
+    }
+
+    public void setBtCancel(Button btCancel) {
+        this.btCancel = btCancel;
+    }
+
+    public void setLabelErrorTelefone(Label labelErrorTelefone) {
+        this.labelErrorTelefone = labelErrorTelefone;
+    }
 }

@@ -34,11 +34,11 @@ public class VeiculosDaoJDBC implements VeiculosDao {
                     Statement.RETURN_GENERATED_KEYS);
 
             st.setString(1, obj.getPlaca());
-            st.setString(1, obj.getModelo());
-            st.setString(1, obj.getCor());
-            st.setString(1, obj.getFabricante());
-            st.setString(1, obj.getKm());
-            st.setDouble(1, obj.getValor_fipe());
+            st.setString(2, obj.getModelo());
+            st.setString(3, obj.getCor());
+            st.setString(4, obj.getFabricante());
+            st.setString(5, obj.getKm());
+            st.setDouble(6, obj.getValor_fipe());
 
 
             int rowsAffected = st.executeUpdate();
@@ -150,6 +150,12 @@ public class VeiculosDaoJDBC implements VeiculosDao {
         Veiculos dep = new Veiculos();
         dep.setId_veiculo(rs.getInt("id_veiculo"));
         dep.setPlaca(rs.getString("placa"));
+        dep.setModelo(rs.getString("modelo"));
+        dep.setAno(rs.getDate("ano"));
+        dep.setCor(rs.getString("cor"));
+        dep.setFabricante(rs.getString("fabricante"));
+        dep.setKm(rs.getString("km"));
+        dep.setValor_fipe(rs.getDouble("valor_fipe"));
         return dep;
     }
 
@@ -160,8 +166,7 @@ public class VeiculosDaoJDBC implements VeiculosDao {
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select * from veiculos "+
-                    "order by Modelo");
+                    "select * from veiculos ");
 
             rs = st.executeQuery();
 

@@ -70,8 +70,8 @@
             <Label fx:id="labelErrorBaseSalary" textAlignment="CENTER" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <Label text="Endereço" GridPane.rowIndex="5" />
             <Label text="Telefone" GridPane.rowIndex="6" />
-            <TextField fx:id="txtId1" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="txtId2" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="txtEndereco" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="txtTelefone" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </children>

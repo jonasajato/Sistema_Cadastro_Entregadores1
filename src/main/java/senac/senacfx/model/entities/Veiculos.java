@@ -1,6 +1,7 @@
 package senac.senacfx.model.entities;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.time.Year;
 
 public class Veiculos implements Serializable {
@@ -132,5 +133,8 @@ public class Veiculos implements Serializable {
                 ", km='" + km + '\'' +
                 ", valor_fipe='" + valor_fipe + '\'' +
                 '}';
+    }
+
+    public void setAno(Date ano) {
     }
 }
