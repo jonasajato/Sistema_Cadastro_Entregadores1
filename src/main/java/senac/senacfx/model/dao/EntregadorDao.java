@@ -14,7 +14,7 @@ public interface EntregadorDao {
 
     void deleteById_entregador(Integer id_entregador);
 
-    Entregador findById_veiculo(Integer id_entregador);
+    Entregador findByid_veiculo(Integer id_entregador);
 
     Entregador findByid_entregador(Integer id_entregador);
 

@@ -34,7 +34,7 @@
       </ToolBar>
       <TableView fx:id="tableViewVeiculos" prefHeight="200.0" prefWidth="200.0">
         <columns>
-          <TableColumn fx:id="tableColumnid_veiculo" prefWidth="75.0" text="Código" />
+          <TableColumn fx:id="tableColumnid_veiculo" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="tableColumnplaca" prefWidth="75.0" text="Placa" />
             <TableColumn fx:id="tableColumnmodelo" prefWidth="75.0" text="Modelo" />
             <TableColumn fx:id="tableColumnano" prefWidth="75.0" text="Ano" />

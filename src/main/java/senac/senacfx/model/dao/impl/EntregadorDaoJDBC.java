@@ -102,7 +102,7 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
     }
 
     @Override
-    public Entregador findById_veiculo(Integer id_entregador) {
+    public Entregador findByid_veiculo(Integer id_entregador) {
         return null;
     }
 
