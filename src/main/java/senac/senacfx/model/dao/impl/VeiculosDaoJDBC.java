@@ -114,8 +114,8 @@ public class VeiculosDaoJDBC implements VeiculosDao {
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select * from Veiculos " +
-                    "where id_veiculo = ?");
+                    "select * from veiculos " +
+                    "where id_veiculo = ?" + id_veiculo);
 
             st.setInt(1, id_veiculo);
             rs = st.executeQuery();
@@ -136,7 +136,7 @@ public class VeiculosDaoJDBC implements VeiculosDao {
 
     private Veiculos instantiateVeiculos(ResultSet rs) throws SQLException {
         Veiculos dep = new Veiculos();
-        dep.setId_veiculo(rs.getInt("Id_veiculo"));
+        dep.setId_veiculo(rs.getInt("id_veiculo"));
         dep.setPlaca(rs.getString("placa"));
         return dep;
     }
@@ -148,7 +148,7 @@ public class VeiculosDaoJDBC implements VeiculosDao {
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select * from Veiculos "+
+                    "select * from veiculos "+
                     "order by Modelo");
 
             rs = st.executeQuery();
@@ -158,11 +158,11 @@ public class VeiculosDaoJDBC implements VeiculosDao {
 
             while (rs.next()){
 
-                Veiculos dep = map.get(rs.getInt("Id"));
+                Veiculos dep = map.get(rs.getInt("id_veiculo"));
 
                 if (dep == null){
                     dep = instantiateVeiculos(rs);
-                    map.put(rs.getInt("Id"), dep);
+                    map.put(rs.getInt("id_veiculo"), dep);
                 }
 
                 list.add(dep);
