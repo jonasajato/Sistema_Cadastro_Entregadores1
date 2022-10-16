@@ -158,12 +158,12 @@ public class EntregadorFormController implements Initializable {
 
         obj.setVeiculos(comboBoxVeiculos.getValue());
 
-        if (txtEndereco.getText() == null || txtEmail.getText().trim().equals("")){
+        if (txtEndereco.getText() == null || txtEndereco.getText().trim().equals("")){
             exception.addError("endereco", "campo nao pode ser vazio");
         }
         obj.setendereco(txtEndereco.getText());
 
-        if (txtTelefone.getText() == null || txtEmail.getText().trim().equals("")){
+        if (txtTelefone.getText() == null || txtTelefone.getText().trim().equals("")){
             exception.addError("telefone", "campo nao pode ser vazio");
         }
         obj.settelefone(txtTelefone.getText());
@@ -209,6 +209,8 @@ public class EntregadorFormController implements Initializable {
         txtId.setText(String.valueOf(entity.getId_entregador()));
         txtName.setText(entity.getNome());
         txtEmail.setText(entity.getEmail());
+        txtEndereco.setText(entity.getendereco());
+        txtTelefone.setText(entity.gettelefone());
 
         Locale.setDefault(Locale.US);
 
@@ -224,8 +226,7 @@ public class EntregadorFormController implements Initializable {
             comboBoxVeiculos.setValue(entity.getVeiculos());
         }
 
-        txtEndereco.setText(entity.getendereco());
-        txtTelefone.setText(entity.gettelefone());
+
 
     }
 
