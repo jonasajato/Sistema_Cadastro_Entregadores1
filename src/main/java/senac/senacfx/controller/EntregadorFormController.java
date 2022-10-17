@@ -161,12 +161,12 @@ public class EntregadorFormController implements Initializable {
         if (txtEndereco.getText() == null || txtEndereco.getText().trim().equals("")){
             exception.addError("endereco", "campo nao pode ser vazio");
         }
-        obj.setendereco(txtEndereco.getText());
+        obj.setEndereco(txtEndereco.getText());
 
         if (txtTelefone.getText() == null || txtTelefone.getText().trim().equals("")){
             exception.addError("telefone", "campo nao pode ser vazio");
         }
-        obj.settelefone(txtTelefone.getText());
+        obj.setTelefone(txtTelefone.getText());
 
         if (exception.getErrors().size() > 0){
             throw exception;
@@ -209,8 +209,8 @@ public class EntregadorFormController implements Initializable {
         txtId.setText(String.valueOf(entity.getId_entregador()));
         txtName.setText(entity.getNome());
         txtEmail.setText(entity.getEmail());
-        txtEndereco.setText(entity.getendereco());
-        txtTelefone.setText(entity.gettelefone());
+        txtEndereco.setText(entity.getEndereco());
+        txtTelefone.setText(entity.getTelefone());
 
         Locale.setDefault(Locale.US);
 

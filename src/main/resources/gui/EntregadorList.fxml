@@ -34,7 +34,7 @@
       </ToolBar>
       <TableView fx:id="tableViewEntregador" prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css">
         <columns>
-          <TableColumn fx:id="tableColumnId_entregador" prefWidth="66.0" text="Código" />
+          <TableColumn fx:id="tableColumnId_entregador" prefWidth="66.0" text="Id" />
           <TableColumn fx:id="tableColumnName" prefWidth="162.0" text="Nome" />
             <TableColumn fx:id="tableColumnEmail" prefWidth="105.0" text="E-mail" />
             <TableColumn fx:id="tableColumnBirthDate" prefWidth="142.0" text="Data de Nascimento" />

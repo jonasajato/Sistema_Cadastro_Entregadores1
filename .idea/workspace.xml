@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="81d21802-e540-4ec1-be82-3abd3519c3ff" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/EntregadorFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/EntregadorFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/EntregadorDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/EntregadorDaoJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Entregador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Entregador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/EntregadorList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/EntregadorList.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +127,7 @@
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="java.sql.SQLSyntaxErrorException" memberName="detailMessage" />
         <PinnedItemInfo parentTag="senac.senacfx.db.DbException" memberName="cause" />
       </pinned-members>
     </pin-to-top-manager>

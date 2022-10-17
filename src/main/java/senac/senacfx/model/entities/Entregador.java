@@ -71,13 +71,15 @@ public class Entregador implements Serializable {
         this.salario = salario;
     }
 
-    public String getendereco() {return endereco;}
+    public String getEndereco() {return endereco;}
 
-    public String setendereco(String text) {return endereco;}
+    public void setEndereco(String endereco) {this.endereco = endereco;
+    }
 
-    public String gettelefone() {return telefone;}
+    public String getTelefone() {return telefone;}
 
-    public String settelefone(String text) {return telefone;}
+    public void setTelefone(String text) { this.telefone = telefone;
+    }
 
     public Veiculos getVeiculos() {
         return veiculos;

@@ -84,7 +84,7 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
     public void deleteById_entregador(Integer id_entregador) {
         PreparedStatement st = null;
         try{
-            st = conn.prepareStatement("delete from Entregador where Id = ?");
+            st = conn.prepareStatement("delete from Entregador where Id_entregador = ?");
 
             st.setInt(1, id_entregador);
 
@@ -112,10 +112,7 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select Entregador.*, Veiculos.nome as Depnome " +
-                    "from Entregador inner join Veiculos " +
-                    "on Entregador.DepartmentId = id_veiculo " +
-                    "where Entregador.Id = ?");
+                    "select * from entregador");
 
             st.setInt(1, id);
             rs = st.executeQuery();
@@ -136,18 +133,20 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
 
     private Veiculos instantiateVeiculos(ResultSet rs) throws SQLException {
         Veiculos dep = new Veiculos();
-        dep.setId_veiculo(rs.getInt("VeiculoId"));
-        dep.setPlaca(rs.getString("VeiculoPlaca"));
+        dep.setId_veiculo(rs.getInt("id_veiculo"));
+//        dep.setPlaca(rs.getString("VeiculoPlaca"));
         return dep;
     }
 
     private Entregador instantiateEntregador(ResultSet rs, Veiculos dep) throws SQLException{
         Entregador obj = new Entregador();
-        obj.setId_entregador(rs.getInt("Id"));
-        obj.setNome(rs.getString("Name"));
-        obj.setEmail(rs.getString("Email"));
-        obj.setSalario(rs.getDouble("BaseSalary"));
-        obj.setData_de_nascimento(new java.util.Date(rs.getTimestamp("BirthDate").getTime()));
+        obj.setId_entregador(rs.getInt("id_entregador"));
+        obj.setNome(rs.getString("nome"));
+        obj.setEmail(rs.getString("email"));
+        obj.setData_de_nascimento(new java.util.Date(rs.getTimestamp("data_de_nascimento").getTime()));
+        obj.setSalario(rs.getDouble("salario"));
+        obj.setEndereco(rs.getString("endereco"));
+        obj.setTelefone(rs.getString("telefone"));
         obj.setVeiculos(dep);
         return obj;
     }
@@ -171,7 +170,7 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
 
             while (rs.next()){
 
-                Veiculos dep = map.get(rs.getInt("VeiculosId"));
+                Veiculos dep = map.get(rs.getInt("id_veiculo"));
 
                 if (dep == null){
                     dep = instantiateVeiculos(rs);
