@@ -136,4 +136,11 @@ public class VeiculoFormController implements Initializable {
         }
     }
 
+    public Button getBtSave() {
+        return btSave;
+    }
+
+    public void setBtSave(Button btSave) {
+        this.btSave = btSave;
+    }
 }

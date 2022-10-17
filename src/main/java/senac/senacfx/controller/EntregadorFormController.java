@@ -67,6 +67,9 @@ public class EntregadorFormController implements Initializable {
     @FXML
     private Label labelErrorBaseSalary;
 
+    public EntregadorFormController() {
+    }
+
     public Label getLabelErrorEndereco() {
         return labelErrorEndereco;
     }
@@ -75,6 +78,7 @@ public class EntregadorFormController implements Initializable {
     private Label labelErrorEndereco;
     @FXML
     private Label labelErrorTelefone;
+
 
     @FXML
     private Button btSave;
@@ -288,4 +292,23 @@ public class EntregadorFormController implements Initializable {
     public void setLabelErrorTelefone(Label labelErrorTelefone) {
         this.labelErrorTelefone = labelErrorTelefone;
     }
+
+    public void setLabelErrorName(Label labelErrorName) { this.labelErrorName = labelErrorName;
+    }
+
+    public void setLabelErrorEmail(Label labelErrorEmail) {
+        this.labelErrorEmail = labelErrorEmail;
+    }
+
+    public void setLabelErrorBirthDate(Label labelErrorBirthDate) {
+        this.labelErrorBirthDate = labelErrorBirthDate;
+    }
+
+    public void setLabelErrorBaseSalary(Label labelErrorBaseSalary) {
+        this.labelErrorBaseSalary = labelErrorBaseSalary;
+    }
+
+//    public void setLabelErrorEmail(Label labelErrorEmail) {
+//        this.labelErrorEmail = labelErrorEmail;
+//    }
 }

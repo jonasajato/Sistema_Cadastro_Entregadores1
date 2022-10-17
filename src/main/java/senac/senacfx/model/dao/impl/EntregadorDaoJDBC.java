@@ -25,14 +25,16 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
         try{
             st = conn.prepareStatement(
                     "insert into Entregador " +
-                            "(nome, Email, BirthDate, BaseSalary, id_veiculo) " +
-                            "values (?, ?, ?, ?, ?)",
+                            "(nome, email, data_de_nascimento, salario, endereco, telefone, id_veiculo) " +
+                            "values (?, ?, ?, ?, ?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS);
 
             st.setString(1, obj.getNome());
             st.setString(2, obj.getEmail());
             st.setDate(3, new Date(obj.getData_de_nascimento().getTime()));
             st.setDouble(4, obj.getSalario());
+            st.setString(5, obj.getEndereco());
+            st.setString(6, obj.getTelefone());
             st.setInt(5, obj.getVeiculos().getId_veiculo());
 
             int rowsAffected = st.executeUpdate();
@@ -61,8 +63,8 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
         try{
             st = conn.prepareStatement(
                     "update Entregador " +
-                            "set nome = ?, Email = ?, BirthDate = ?, BaseSalary = ?, id_veiculo = ? " +
-                            "where id = ?");
+                            "set nome = ?, email = ?, data_de_nascimento = ?, salario = ?, endereco = ?, telefone = ?, id_veiculo = ? " +
+                            "where id_entregador = ?");
 
             st.setString(1, obj.getNome());
             st.setString(2, obj.getEmail());
