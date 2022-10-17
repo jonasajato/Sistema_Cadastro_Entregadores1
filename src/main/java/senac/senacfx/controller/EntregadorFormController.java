@@ -121,6 +121,7 @@ public class EntregadorFormController implements Initializable {
             Utils.currentStage(event).close();
         } catch (DbException e){
             Alerts.showAlert("Erro ao salvar objeto", null, e.getMessage(), Alert.AlertType.ERROR);
+            e.printStackTrace();
         } catch (ValidationException e){
             setErrorMessages(e.getErrors());
         }
@@ -193,12 +194,12 @@ public class EntregadorFormController implements Initializable {
 
     private void initializeNodes() {
         Constraints.setTextFieldInteger(txtId);
-        Constraints.setTextFieldMaxLength(txtName);
-        Constraints.setTextFieldMaxLength(txtEmail);
+        Constraints.setTextFieldMaxLength(txtName, 45);
+        Constraints.setTextFieldMaxLength(txtEmail, 45);
         Utils.formatDatePicker(dpBirthDate, "yyyy/MM/dd");
         Constraints.setTextFieldDouble(txtBaseSalary);
-        Constraints.setTextFieldMaxLength(txtEndereco);
-        Constraints.setTextFieldMaxLength(txtTelefone);
+        Constraints.setTextFieldMaxLength(txtEndereco, 150);
+        Constraints.setTextFieldMaxLength(txtTelefone, 20);
 
 
         initializeComboBoxVeiculos();

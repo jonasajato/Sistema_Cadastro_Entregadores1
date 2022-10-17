@@ -8,8 +8,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/EntregadorFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/EntregadorFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/VeiculoFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/VeiculoFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/ViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/gui/util/Constraints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/gui/util/Constraints.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/EntregadorDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/EntregadorDaoJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/VeiculoForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/VeiculoForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/VeiculosDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/VeiculosDaoJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/EntregadorForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/EntregadorForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

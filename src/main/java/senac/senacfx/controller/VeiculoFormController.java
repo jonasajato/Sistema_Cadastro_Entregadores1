@@ -136,13 +136,13 @@ public class VeiculoFormController implements Initializable {
 
     private void initializeNodes() {
         Constraints.setTextFieldInteger(txtId);
-        Constraints.setTextFieldMaxLength(txtPlaca);
-        Constraints.setTextFieldMaxLength(txtModelo);
-        Constraints.setTextFieldMaxLength(txtAno);
-        Constraints.setTextFieldMaxLength(txtCor);
-        Constraints.setTextFieldMaxLength(txtFabricante);
-        Constraints.setTextFieldMaxLength(txtKm);
-        Constraints.setTextFieldMaxLength(txtValor_fipe);
+        Constraints.setTextFieldMaxLength(txtPlaca, 45);
+        Constraints.setTextFieldMaxLength(txtModelo, 45);
+        Constraints.setTextFieldMaxLength(txtAno, 4);
+        Constraints.setTextFieldMaxLength(txtCor, 20);
+        Constraints.setTextFieldMaxLength(txtFabricante, 150);
+        Constraints.setTextFieldMaxLength(txtKm, 20);
+        Constraints.setTextFieldMaxLength(txtValor_fipe, 200);
 
     }
 

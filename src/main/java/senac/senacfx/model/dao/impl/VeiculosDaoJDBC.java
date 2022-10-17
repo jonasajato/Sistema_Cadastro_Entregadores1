@@ -79,7 +79,7 @@ public class VeiculosDaoJDBC implements VeiculosDao {
             st.setString(1, obj.getPlaca());
             st.setInt(2, obj.getId_veiculo());
             st.setString(3, obj.getModelo());
-            st.setDate(4, Date.valueOf(obj.getAno()));
+            st.setString(4, obj.getAno());
             st.setString(5, obj.getCor());
             st.setString(6, obj.getFabricante());
             st.setString(7, obj.getKm());
