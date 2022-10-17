@@ -1,6 +1,5 @@
 package senac.senacfx.controller;
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -89,8 +88,8 @@ public class ViewController implements Initializable {
 
         Constraints.setTextFieldDouble(txt1);
         Constraints.setTextFieldDouble(txt2);
-        Constraints.setTextFieldMaxLength(txt1, 5);
-        Constraints.setTextFieldMaxLength(txt2, 5);
+        Constraints.setTextFieldMaxLength(txt1);
+        Constraints.setTextFieldMaxLength(txt2);
         Constraints.setTextFieldInteger(txt1);
         Constraints.setTextFieldInteger(txt2);
     }
