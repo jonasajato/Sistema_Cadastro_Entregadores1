@@ -30,12 +30,12 @@ public class VeiculosDaoJDBC implements VeiculosDao {
                     Statement.RETURN_GENERATED_KEYS);
 
 //            st.setInt(1, obj.getId_veiculo());
-            st.setString(2, obj.getPlaca());
-            st.setString(3, obj.getModelo());
-            st.setString(4, obj.getCor());
-            st.setString(5, obj.getFabricante());
-            st.setString(6, obj.getKm());
-            st.setDouble(7, obj.getValor_fipe());
+            st.setString(1, obj.getPlaca());
+            st.setString(2, obj.getModelo());
+            st.setString(3, obj.getCor());
+            st.setString(4, obj.getFabricante());
+            st.setString(5, obj.getKm());
+            st.setDouble(6, obj.getValor_fipe());
 
 
             int rowsAffected = st.executeUpdate();
