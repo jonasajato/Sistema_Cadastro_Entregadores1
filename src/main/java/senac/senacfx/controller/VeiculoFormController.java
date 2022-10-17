@@ -31,7 +31,25 @@ public class VeiculoFormController implements Initializable {
     private TextField txtId;
 
     @FXML
-    private TextField txtName;
+    private TextField txtPlaca;
+
+
+    @FXML
+    private TextField txtModelo;
+
+    @FXML
+    private TextField txtAno;
+
+    @FXML
+    private TextField txtCor;
+    @FXML
+    private TextField txtFabricante;
+
+    @FXML
+    private TextField txtKm;
+
+    @FXML
+    private TextField txtValor_fipe;
 
     @FXML
     private Label labelErrorName;
@@ -41,6 +59,9 @@ public class VeiculoFormController implements Initializable {
 
     @FXML
     private Button btCancel;
+
+    public VeiculoFormController() {
+    }
 
     //Contolador agora tem uma instancia do departamento
     public void setVeiculos(Veiculos entity){
@@ -90,10 +111,10 @@ public class VeiculoFormController implements Initializable {
 
         obj.setId_veiculo(Utils.tryParseToInt(txtId.getText()));
 
-        if (txtName.getText() == null || txtName.getText().trim().equals("")){
-            exception.addError("name", "campo nao pode ser vazio");
+        if (txtPlaca.getText() == null || txtPlaca.getText().trim().equals("")){
+            exception.addError("placa", "campo nao pode ser vazio");
         }
-        obj.setPlaca(txtName.getText());
+        obj.setPlaca(txtPlaca.getText());
 
         if (exception.getErrors().size() > 0){
             throw exception;
@@ -115,7 +136,13 @@ public class VeiculoFormController implements Initializable {
 
     private void initializeNodes() {
         Constraints.setTextFieldInteger(txtId);
-        Constraints.setTextFieldMaxLength(txtName, 30);
+        Constraints.setTextFieldMaxLength(txtPlaca);
+        Constraints.setTextFieldMaxLength(txtModelo);
+        Constraints.setTextFieldMaxLength(txtAno);
+        Constraints.setTextFieldMaxLength(txtCor);
+        Constraints.setTextFieldMaxLength(txtFabricante);
+        Constraints.setTextFieldMaxLength(txtKm);
+        Constraints.setTextFieldMaxLength(txtValor_fipe);
 
     }
 
@@ -125,7 +152,7 @@ public class VeiculoFormController implements Initializable {
         }
 
         txtId.setText(String.valueOf(entity.getId_veiculo()));
-        txtName.setText(entity.getPlaca());
+        txtPlaca.setText(entity.getPlaca());
     }
 
     private void setErrorMessages(Map<String, String> errors){
@@ -142,5 +169,61 @@ public class VeiculoFormController implements Initializable {
 
     public void setBtSave(Button btSave) {
         this.btSave = btSave;
+    }
+
+    public TextField getTxtPlaca() {
+        return txtPlaca;
+    }
+
+    public void setTxtPlaca(TextField txtPlaca) {
+        this.txtPlaca = txtPlaca;
+    }
+
+    public TextField getTxtModelo() {
+        return txtModelo;
+    }
+
+    public void setTxtModelo(TextField txtModelo) {
+        this.txtModelo = txtModelo;
+    }
+
+    public TextField getTxtAno() {
+        return txtAno;
+    }
+
+    public void setTxtAno(TextField txtAno) {
+        this.txtAno = txtAno;
+    }
+
+    public TextField getTxtCor() {
+        return txtCor;
+    }
+
+    public void setTxtCor(TextField txtCor) {
+        this.txtCor = txtCor;
+    }
+
+    public TextField getTxtFabricante() {
+        return txtFabricante;
+    }
+
+    public void setTxtFabricante(TextField txtFabricante) {
+        this.txtFabricante = txtFabricante;
+    }
+
+    public TextField getTxtKm() {
+        return txtKm;
+    }
+
+    public void setTxtKm(TextField txtKm) {
+        this.txtKm = txtKm;
+    }
+
+    public TextField getTxtValor_fipe() {
+        return txtValor_fipe;
+    }
+
+    public void setTxtValor_fipe(TextField txtValor_fipe) {
+        this.txtValor_fipe = txtValor_fipe;
     }
 }

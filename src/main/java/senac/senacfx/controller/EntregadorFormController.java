@@ -80,6 +80,7 @@ public class EntregadorFormController implements Initializable {
     private Label labelErrorTelefone;
 
 
+
     @FXML
     private Button btSave;
 
@@ -192,12 +193,12 @@ public class EntregadorFormController implements Initializable {
 
     private void initializeNodes() {
         Constraints.setTextFieldInteger(txtId);
-        Constraints.setTextFieldMaxLength(txtName, 45);
-        Constraints.setTextFieldMaxLength(txtEmail, 45);
+        Constraints.setTextFieldMaxLength(txtName);
+        Constraints.setTextFieldMaxLength(txtEmail);
         Utils.formatDatePicker(dpBirthDate, "yyyy/MM/dd");
         Constraints.setTextFieldDouble(txtBaseSalary);
-        Constraints.setTextFieldMaxLength(txtEndereco, 150);
-        Constraints.setTextFieldMaxLength(txtTelefone, 20);
+        Constraints.setTextFieldMaxLength(txtEndereco);
+        Constraints.setTextFieldMaxLength(txtTelefone);
 
 
         initializeComboBoxVeiculos();
@@ -212,6 +213,7 @@ public class EntregadorFormController implements Initializable {
 
         txtId.setText(String.valueOf(entity.getId_entregador()));
         txtName.setText(entity.getNome());
+        System.out.println(txtName);
         txtEmail.setText(entity.getEmail());
         txtEndereco.setText(entity.getEndereco());
         txtTelefone.setText(entity.getTelefone());
@@ -293,7 +295,8 @@ public class EntregadorFormController implements Initializable {
         this.labelErrorTelefone = labelErrorTelefone;
     }
 
-    public void setLabelErrorName(Label labelErrorName) { this.labelErrorName = labelErrorName;
+    public void setLabelErrorName(Label labelErrorName) {
+        this.labelErrorName = labelErrorName;
     }
 
     public void setLabelErrorEmail(Label labelErrorEmail) {
