@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81d21802-e540-4ec1-be82-3abd3519c3ff" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/VeiculoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/controller/VeiculoListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/VeiculosDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/VeiculosDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/VeiculosDaoJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/dao/impl/VeiculosDaoJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Entregador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Entregador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Veiculos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/entities/Veiculos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/services/VeiculoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/senac/senacfx/model/services/VeiculoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/gui/VeiculoForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui/VeiculoForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

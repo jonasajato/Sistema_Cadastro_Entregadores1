@@ -31,7 +31,7 @@ public class VeiculoService {
         }
 
         public void remove(Veiculos obj){
-            dao.deleteById(obj.getId_veiculo());
+            dao.deleteById_veiculo(obj.getId_veiculo());
         }
     }
 

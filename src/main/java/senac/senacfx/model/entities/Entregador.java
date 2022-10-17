@@ -117,7 +117,7 @@ public class Entregador implements Serializable {
 
     @Override
     public String toString() {
-        return "Entregador{" +
+        return "entregador{" +
                 "id_entregador=" + id_entregador +
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +

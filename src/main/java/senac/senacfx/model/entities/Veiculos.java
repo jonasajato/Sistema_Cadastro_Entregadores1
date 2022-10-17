@@ -123,15 +123,15 @@ public class Veiculos implements Serializable {
 
     @Override
     public String toString() {
-        return "veiculo{" +
+        return "veiculos{" +
                 "id_veiculo=" + id_veiculo +
-                ", placa='" + placa + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", ano='" + ano + '\'' +
-                ", cor='" + cor + '\'' +
-                ", fabricante='" + fabricante + '\'' +
-                ", km='" + km + '\'' +
-                ", valor_fipe='" + valor_fipe + '\'' +
+                ", placa='" + placa +
+                ", modelo=" + modelo +
+                ", ano=" + ano +
+                ", cor=" + cor +
+                ", fabricante=" + fabricante +
+                ", km=" + km +
+                ", valor_fipe=" + valor_fipe +
                 '}';
     }
 
