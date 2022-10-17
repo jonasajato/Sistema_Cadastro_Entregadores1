@@ -24,19 +24,19 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
         PreparedStatement st = null;
         try{
             st = conn.prepareStatement(
-                    "insert into Entregador " +
-                            "(id_entregador, nome, email, data_de_nascimento, salario, endereco, telefone, id_veiculo) " +
-                            "values (?, ?, ?, ?, ?, ?, ?, ?)",
+                    "insert into entregador " +
+                            "(nome, email, data_de_nascimento, salario, endereco, telefone, id_veiculo) " +
+                            "values (?, ?, ?, ?, ?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS);
 
-            st.setInt(1, obj.getId_entregador());
-            st.setString(2, obj.getNome());
-            st.setString(3, obj.getEmail());
-            st.setDate(4, new Date(obj.getData_de_nascimento().getTime()));
-            st.setDouble(5, obj.getSalario());
-            st.setString(6, obj.getEndereco());
-            st.setString(7, obj.getTelefone());
-            st.setInt(8, obj.getVeiculos().getId_veiculo());
+//            st.setInt(1, obj.getId_entregador());
+            st.setString(1, obj.getNome());
+            st.setString(2, obj.getEmail());
+            st.setDate(3, new Date(obj.getData_de_nascimento().getTime()));
+            st.setDouble(4, obj.getSalario());
+            st.setString(5, obj.getEndereco());
+            st.setString(6, obj.getTelefone());
+            st.setInt(7, obj.getVeiculos().getId_veiculo());
 
             int rowsAffected = st.executeUpdate();
 
@@ -63,7 +63,7 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
         PreparedStatement st = null;
         try{
             st = conn.prepareStatement(
-                    "update Entregador " +
+                    "update entregador " +
                             "set id_entregador = ?, nome = ?, email = ?, data_de_nascimento = ?, salario = ?, endereco = ?, telefone = ?, id_veiculo = ? " +
                             "where id_entregador = ?");
 
@@ -118,7 +118,7 @@ public abstract class EntregadorDaoJDBC implements EntregadorDao {
         ResultSet rs = null;
         try{
             st = conn.prepareStatement("" +
-                    "select * from entregador");
+                    "select * from entregador;");
 
             st.setInt(1, id);
             rs = st.executeQuery();

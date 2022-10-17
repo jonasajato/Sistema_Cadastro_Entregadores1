@@ -135,6 +135,5 @@ public class Veiculos implements Serializable {
                 '}';
     }
 
-    public void setAno(Date ano) {
-    }
+
 }

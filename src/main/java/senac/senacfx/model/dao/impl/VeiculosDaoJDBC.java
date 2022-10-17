@@ -6,6 +6,7 @@ import senac.senacfx.model.dao.VeiculosDao;
 import senac.senacfx.model.entities.Veiculos;
 
 import java.sql.*;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,24 +22,20 @@ public class VeiculosDaoJDBC implements VeiculosDao {
     @Override
     public void insert(Veiculos obj) {
         PreparedStatement st = null;
-        try {
-            st = conn.prepareStatement("insert into veiculo " +
-                    "(placa) " +
-                            "(modelo) " +
-                            "(ano) " +
-                            "(ano) " +
-                            "(fabricante ) " +
-                            "(km) " +
-                            "(valor_fipe) " +
-                    "values (?) ",
+        try{
+            st = conn.prepareStatement(
+                    "insert into veiculos " +
+                            "(placa, modelo, cor, fabricante, km, valor_fipe) " +
+                            "values (?, ?, ?, ?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS);
 
-            st.setString(1, obj.getPlaca());
-            st.setString(2, obj.getModelo());
-            st.setString(3, obj.getCor());
-            st.setString(4, obj.getFabricante());
-            st.setString(5, obj.getKm());
-            st.setDouble(6, obj.getValor_fipe());
+//            st.setInt(1, obj.getId_veiculo());
+            st.setString(2, obj.getPlaca());
+            st.setString(3, obj.getModelo());
+            st.setString(4, obj.getCor());
+            st.setString(5, obj.getFabricante());
+            st.setString(6, obj.getKm());
+            st.setDouble(7, obj.getValor_fipe());
 
 
             int rowsAffected = st.executeUpdate();
@@ -67,29 +64,19 @@ public class VeiculosDaoJDBC implements VeiculosDao {
         PreparedStatement st = null;
         try {
             st = conn.prepareStatement("update veiculo " +
-                            "set placa = ? " +
-                            "set modelo = ? " +
-                    "set ano = ? " +
-                    "set cor = ? " +
-                    "set fabricante = ? " +
-                    "set km = ? " +
-                    "set valor_fipe = ? " +
-                            "where id_veiculo = ?");
+                    "set placa = ?, modelo = ?, ano = ?, cor = ?, fabricante = ?, " +
+                    "km = ?, valor_fipe = ?");
 
+//            st.setInt(1, obj.getId_veiculo());
             st.setString(1, obj.getPlaca());
-            st.setInt(2, obj.getId_veiculo());
-            st.setString(3, obj.getModelo());
-            st.setString(4, obj.getAno());
-            st.setString(5, obj.getCor());
-            st.setString(6, obj.getFabricante());
-            st.setString(7, obj.getKm());
-            st.setDouble(8, obj.getValor_fipe());
-
-            int rowsAffected = st.executeUpdate();
-
-            if (rowsAffected == 0){
-                throw new DbException("Error! No rows affected!");
-            }
+            st.setString(2, obj.getModelo());
+            st.setString(3, obj.getAno());
+            st.setString(4, obj.getCor());
+            st.setString(5, obj.getFabricante());
+            st.setString(6, obj.getKm());
+            st.setDouble(7, obj.getValor_fipe());
+//            st.setInt(9, obj.getId_veiculo());
+            st.executeUpdate();
 
         } catch (SQLException e){
             throw new DbException(e.getMessage());
@@ -151,7 +138,7 @@ public class VeiculosDaoJDBC implements VeiculosDao {
         dep.setId_veiculo(rs.getInt("id_veiculo"));
         dep.setPlaca(rs.getString("placa"));
         dep.setModelo(rs.getString("modelo"));
-        dep.setAno(rs.getDate("ano"));
+        dep.setAno(Year.of(rs.getInt("ano")));
         dep.setCor(rs.getString("cor"));
         dep.setFabricante(rs.getString("fabricante"));
         dep.setKm(rs.getString("km"));
